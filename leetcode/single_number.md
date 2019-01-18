@@ -31,11 +31,72 @@ In the example above, the first position has counter 3 and 3 = 0 (mod 3), while 
 ```
 And ```3``` will be the solution.
 
-Thanks for bitwise operators. Now let's implement this idea by using **three** integers. There is the reasoning: the first integer should indicate those bit positions that hit by 1 $$x \equiv 0 \pmod{3}$$ times, the second integer indicates those hit by 1 $$x \equiv 1 \pmod{3}$$ times, and the third indicates those hit by 1 $$x \equiv 2 \pmod{3}$$ times.
+Thanks for bitwise operators. Now let's implement this idea by using **three** integers. There is the reasoning: the first integer should indicate those bit positions that hit by 1 X = 0 (mod 3) times, the second integer indicates those hit by 1 X = 1 (mod 3) times, and the third indicates those hit by 1 X = 2 (mod 3) times. 
+
+In fact, for each bit position, we use 3 bits to encode its condition:
+
+```
+x0 x1 x2
+1  0  0 ----> 1 shows up X = 0 (mod 3) times
+0  1  0 ----> 1 shows up X = 1 (mod 3) times
+0  0  1 ----> 1 shows up X = 2 (mod 3) times
+```
+
+Indeed, it suffices to consider only one bit since the rest of them will do something parallel:
+```
+[1, 1, 0, 1]
+initialize x0, x1, x2 = 0, 1, 0
+Scan the array from left to right:
+
+     [1, 1, 0, 1]  [1, 1, 0, 1]  [1, 1, 0, 1]  [1, 1, 0, 1]
+      ^                ^                ^                ^
+x0        0             0              0            0
+x1        1             0              0            0 
+x2        0             1              1            0  
+```
+Note that base 10 form of ```x1``` is the final answer.
+Here is the code:
+```
+def singleNumber(nums):
+    x0, x1, x2 = 0, nums[0], 0
+    for n in nums[1:]:
+        x0 = x2 & n # mark the bits that are marked by x2 in the previous iteration and now show up in the new number
+        x2 ^= x0 # bits marked by x2 are now marked by x0 by the line above, so unmark them
+        x2 |= x1 & n # mark the bits that show up in the new number and are also marked by x1 in the previous iteration
+        x1 ^= n # update x1 according to n
+        x1 ^= x0 # unmark those bits that are marked by x0
+    return x1
+```
+Thank you Alice.
 
 ### Solution 2
+The second solution applies the similar idea as the first one, except that it tries to encode the three condisions of each bit by two other bits, while the first solution use three bits for each bit. Specifically, for each bit:
+```
+a b
+1 0 ----> 1 shows up X = 1 (mod 3) times
+0 1 ----> 1 shows up X = 2 (mod 3) times
+0 0 ----> 1 shows up X = 3 (mod 3) times
+```
+
+Here is the code:
+```
+def singleNumber(nums):
+    a, b = 0, 0
+    for n in nums:
+        a = a ^ n & ~b
+        b = b ^ n & ~a
+    return a
+```
 
 ### Extension: Single Number III
+Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.
+
+Example:
+```
+Input:  [1,2,1,3,2,5]
+Output: [3,5]
+```
+
 
 ### References
 - [solution 1](https://www.jianshu.com/p/ae56c3133a75?utm_campaign=hugo&utm_medium=reader_share&utm_content=note&utm_source=weixin-timeline&from=timeline)
