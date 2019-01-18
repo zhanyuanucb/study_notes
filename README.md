@@ -19,6 +19,6 @@
 
 ### TODO (2019/1/17):
 - [x] Review the notes of info theory and BEC
-- [ ] Finish the first note of **leetcode** on "single number" problem on Leetcode.
+- [X] Finish the first note of **leetcode** on "single number" problem on Leetcode.
 - [ ] Finish the first note of **stats-n-prob** on channel capacity.
 - [ ] Start the first note of **machine-learning** on backprop inP RNN
