@@ -29,7 +29,7 @@ In the example above, the first position has counter 3 and 3 = 0 (mod 3), while 
 ```
 311 ==> 011 == base 10 ==> 3
 ```
-And ```3``` will be the solution.
+And `3` will be the solution.
 
 Thanks for bitwise operators. Now let's implement this idea by using **three** integers. There is the reasoning: the first integer should indicate those bit positions that hit by 1 X = 0 (mod 3) times, the second integer indicates those hit by 1 X = 1 (mod 3) times, and the third indicates those hit by 1 X = 2 (mod 3) times. 
 
@@ -42,7 +42,7 @@ x0 x1 x2
 0  0  1 ----> 1 shows up X = 2 (mod 3) times
 ```
 
-Indeed, it suffices to consider only one bit since the rest of them will do something parallel:
+Indeed, it suffices to consider only one bit since the rest of them will do something *parallel*:
 ```
 [1, 1, 0, 1]
 initialize x0, x1, x2 = 0, 1, 0
@@ -50,7 +50,7 @@ Scan the array from left to right:
 
      [1, 1, 0, 1]  [1, 1, 0, 1]  [1, 1, 0, 1]  [1, 1, 0, 1]
       ^                ^                ^                ^
-x0        0             0              0            0
+x0        0             0              0            1
 x1        1             0              0            0 
 x2        0             1              1            0  
 ```
@@ -60,13 +60,17 @@ Here is the code:
 def singleNumber(nums):
     x0, x1, x2 = 0, nums[0], 0
     for n in nums[1:]:
-        x0 = x2 & n # mark the bits that are marked by x2 in the previous iteration and now show up in the new number
+        x0 = x2 & n # mark the bits that showed up in both x2 and n
         x2 ^= x0 # bits marked by x2 are now marked by x0 by the line above, so unmark them
-        x2 |= x1 & n # mark the bits that show up in the new number and are also marked by x1 in the previous iteration
-        x1 ^= n # update x1 according to n
-        x1 ^= x0 # unmark those bits that are marked by x0
+        x2 |= x1 & n # use the same logic to update x2. But why 'or'? See explanation below
+        x1 ^= n 
+        x1 ^= x0 
     return x1
 ```
+Note that `x2 |= x1 & n`. Consider one bit position and 1 has already shown up twice(so now x2 at this bit position is 1), but the third 1 doesn't show up in the next new number. Without `|`, x2 will back to 0 since now x1 and n are both 0 at this position. For more concrete example, consider a input `[1, 0, 1, 0, 1, 0, 3]`.
+
+The last two lines of the iteration seems a *bit* off, but it actually utilize the fact that any bit position can only have one mark, from one of x0, x1, and x2. 
+
 Thank you Alice.
 
 ### Solution 2
@@ -97,6 +101,7 @@ Input:  [1,2,1,3,2,5]
 Output: [3,5]
 ```
 
+TO BE UPDATED
 
 ### References
 - [solution 1](https://www.jianshu.com/p/ae56c3133a75?utm_campaign=hugo&utm_medium=reader_share&utm_content=note&utm_source=weixin-timeline&from=timeline)
