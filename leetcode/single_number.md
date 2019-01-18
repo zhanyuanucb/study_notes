@@ -31,7 +31,7 @@ In the example above, the first position has counter 3 and 3 = 0 (mod 3), while 
 ```
 And ```3``` will be the solution.
 
-Thanks for bitwise operators. Now let's implement this idea by using **three** integers. There is the reasoning: the first integer should indicate those bit positions that hit by 1 $x \equiv 0 \pmod{3}$ times, the second integer indicates those hit by 1 $x \equiv 1 \pmod{3}$ times, and the third indicates those hit by 1 $x \equiv 2 \pmod{3}$ times.
+Thanks for bitwise operators. Now let's implement this idea by using **three** integers. There is the reasoning: the first integer should indicate those bit positions that hit by 1 $$x \equiv 0 \pmod{3}$$ times, the second integer indicates those hit by 1 $$x \equiv 1 \pmod{3}$$ times, and the third indicates those hit by 1 $$x \equiv 2 \pmod{3}$$ times.
 
 ### Solution 2
 
