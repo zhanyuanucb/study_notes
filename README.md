@@ -13,11 +13,12 @@
 
 - **machine-learning:** Important concepts, tricks, or even visualization I find during my learning of Machine Learning
 
-- **stats-prob:** Notes about Statistics and Probability
+- **stats-n-prob:** Notes about Statistics and Probability
 
 - **connections:** Notes on those inspiring connections of the three sessions above.
 
 ### TODO (2019/1/17):
-- [ ] Review the notes of info theory and BEC
-- [ ] Finish the first note, which is about the connection between the "single number" question on Leetcode and Information theory.
-- [ ] Finish the second note, which is about the backprop in an RNN.
+- [x] Review the notes of info theory and BEC
+- [ ] Finish the first note of **leetcode** on "single number" problem on Leetcode.
+- [ ] Finish the first note of **stats-n-prob** on channel capacity.
+- [ ] Start the first note of **machine-learning** on backprop in RNN
