@@ -42,7 +42,7 @@ x0 x1 x2
 0  0  1 ----> 1 shows up X = 2 (mod 3) times
 ```
 
-Indeed, it suffices to consider only one bit since the rest of them will do something *parallel*:
+Indeed, it suffices to consider only one bit since the rest of them will do the similar thing in *parallel*:
 ```
 [1, 1, 0, 1]
 initialize x0, x1, x2 = 0, 1, 0
