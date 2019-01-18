@@ -21,4 +21,9 @@
 - [x] Review the notes of info theory and BEC
 - [x] Finish the first note of **leetcode** on "single number" problem on Leetcode.
 - [x] Finish the first note of **stats-n-prob** on channel capacity.
-- [x] Start the first note of **machine-learning** on backprop inP RNN
+- [x] Start the first note of **machine-learning** on backprop in RNN
+
+### TODO (2019/1/18):
+- [ ] Complete the extension part of the *single number*
+- [ ] Finish the first note of **machine-learning**
+- [ ] Start the note on Fourier Transform and CNN.
