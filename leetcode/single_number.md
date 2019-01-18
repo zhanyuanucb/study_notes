@@ -17,18 +17,19 @@ Output: 99
 ```
 
 ### Solution 1
-Alice's idea is as following: First, as we scan through the array, count the appearances of 1 in each bit position. For instance:
+    Alice's idea is as following: First, as we scan through the array, count the appearances of 1 in each bit position. For instance:
 ```
 [4, 4, 3, 4] == base 2 ==> [100, 100, 011, 100]
 Scan the array from left to right.
 3 1's show up at the first position, 1 at the second, and 1 at the third
 ```
-Once we get the counter of each position, set those counters whose ```mod 3``` is 1 to be 1 and the rest are all set to 0.  
+    Once we get the counter of each position, set those counters whose ```mod 3``` is 1 to be 1 and the rest are all set to 0.  
 In the example above, the first position has counter 3 and 3 = 0 (mod 3), while the last two positions have counter 1 and 1 = 1 (mod 3). Hence:
 ```
 311 ==> 011 == base 10 ==> 3
 ```
 And ```3``` will be the solution.
+
 ### Solution 2
 
 ### Extension: Single Number III
