@@ -23,4 +23,9 @@
 ### TODO (2019/1/18):
 - [ ] Complete the extension part of the *single number*
 - [x] Finish the first note of **machine-learning**
-- [ ] Start the note on Fourier Transform and CNN.
+- [x] Start the note on Fourier Transform and CNN.
+
+### TODO (2019/1/19):
+- [ ] Continue to finish the extension part of *single number*
+- [ ] Finish *Fourier Transform and CNN*
+- [ ] Study matrix calculus
