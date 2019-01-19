@@ -29,3 +29,4 @@
 - [ ] Continue to finish the extension part of *single number*
 - [ ] Finish *Fourier Transform and CNN*
 - [ ] Study matrix calculus
+- [ ] Add more content on *backprop in rnn*
