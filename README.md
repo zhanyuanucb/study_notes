@@ -27,6 +27,6 @@
 
 ### TODO (2019/1/19):
 - [ ] Continue to finish the extension part of *single number*
-- [ ] Finish *Fourier Transform and CNN*
-- [ ] Study matrix calculus
-- [ ] Add more content on *backprop in rnn*
+- [x] Study matrix calculus and backprop algorithm
+- [x] Add more content on *backprop in rnn*
+- [ ] Finish `the_heart_of_backprop`
