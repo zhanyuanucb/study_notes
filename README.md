@@ -29,4 +29,8 @@
 - [ ] Continue to finish the extension part of *single number*
 - [x] Study matrix calculus and backprop algorithm
 - [x] Add more content on *backprop in rnn*
-- [ ] Finish `the_heart_of_backprop`
+- [x] Finish `the_heart_of_backprop`
+
+### TODO(2019/1/20):
+- [ ] Must finish the extension of *single number*
+- [ ] Continue to work on *fourier transform in cnn*
