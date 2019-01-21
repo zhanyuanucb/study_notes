@@ -101,7 +101,32 @@ Input:  [1,2,1,3,2,5]
 Output: [3,5]
 ```
 
-TO BE UPDATED
+One way to solve this one is to use the fact that `(a^b)^b = a` and `(a^b)^a = a`. But the key thing is that how to distinguish a from b. To accomplish this, note that in (a^b), a `1` in a bit position means that `a` and `b` has different value at this position. For instance, `3 ^ 5 = 011 ^ 101 = 110 = 6`. Hence, we only need to find the first 1-bit in `a^b`.  
+The conclusion is that `a & ~(a - 1)` mark the first 1-bit as 1 while the rest as 0. For instance, `8 & complement(7) = 1000 & complement(0111) = 1000 & 1000 = 1000` and `5 & complement(4) = 101 & complement(100) = 101 & 011 = 001`  
+
+How to make sense out of this result? I look up how python deal with negative number in base 2 ([link](https://wiki.python.org/moin/BitwiseOperators)):
+The last bit (also the first one if you count from the left) indicates the sign: 0 for positive and 1 for negative. -x = complement(x - 1); also, `~x = -x-1`.
+
+Hence, `~(a - 1) = -(a - 1) - 1 = -a = complement(a - 1)`.  
+Show that a & (a - 1) indicates where `a` has its first 1-bit.
+Case 1: `a` and `(a - 1)` have the same length. Then `a` and `a-1` are the same except the first bit, where `a` has 1 there while `a-1` has 0. So, the statement is true. For example 5 and 4 in the example above.  
+Case 2: `a` and `(a - 1)` have different length. Then `a` must be some power of 2, which mean it has 1 at the last bit and 0 otherwise. `a - 1` then has 1 at all its bits. So, the statement is also true.  
+
+Finally, the following code implement this idea:
+```
+def singleNumber(nums):
+    xor = 0
+    for n in nums:
+        xor ^= n
+    a, b = 0, 0
+    filter = xor & ~(xor - 1)
+    for n in nums:
+        if filter & n:
+            a ^= n
+        else:
+            b ^= n
+    return [a, b]
+```
 
 ### References
 - [solution 1](https://www.jianshu.com/p/ae56c3133a75?utm_campaign=hugo&utm_medium=reader_share&utm_content=note&utm_source=weixin-timeline&from=timeline)
