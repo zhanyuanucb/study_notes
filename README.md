@@ -32,5 +32,8 @@
 - [x] Finish `the_heart_of_backprop`
 
 ### TODO(2019/1/20):
-- [ ] Must finish the extension of *single number*
-- [ ] Continue to work on *fourier transform in cnn*
+- [x] Must finish the extension of *single number*
+- [x] Continue to work on *fourier transform in cnn*
+
+### TODO (2019/1/21):
+- [ ] Finish up *fourier transform in cnn*
