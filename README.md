@@ -36,4 +36,5 @@
 - [x] Continue to work on *fourier transform in cnn*
 
 ### TODO (2019/1/21):
-- [ ] Finish up *fourier transform in cnn*
+- [ ] Finish up *fourier transform in cnn*.
+*This note is still under construction... I'm reading more and more resources to make sure that I can explain the concepts correctly and clearly*
